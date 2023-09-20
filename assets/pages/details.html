@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events | Details</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <img class="logo" src="../images/amazing_brand.png" alt="amazing-logo">
+            <nav class="nav-header">
+                <a class="a-header" href="../../index.html">Home</a>
+                <a class="a-header" href="./upcomingevents.html">Upcoming Events</a>
+                <a class="a-header" href="./pastevents.html">Past Events</a>
+                <a class="a-header" href="./contact.html">Contact</a>
+                <a class="a-header" href="./stats.html">Stats</a>
+            </nav>
+        </header>
+
+        <main class="main-details">
+            <div v-for="event of eventsFilterID" class="div-card-details">
+                <img :src="event.image" class="card-img-me">
+                <div class="items-card-details">
+                    <h3 class="card-title">{{event.name}}</h3>
+                    <h5 class="card-text">{{event.description}}</h5>
+                    <h6>Category: {{event.category}}</h6>
+                    <p>Date: {{event.date}}</p>
+                    <p>Place: {{event.place}}</p>
+                    <p>Capacity: {{event.capacity}}</p>
+                    <p v-if="event.estimate">Estimate: {{event.estimate}}<p>
+                    <p v-if="event.assistance">Assistance: {{event.assistance}}</p>
+                    <h4>US$ {{event.price}}</h4>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="imag">
+                <a class="icon-link" href="#">
+                    <svg class="bi" aria-hidden="true">
+                        <use xlink:href="#box-seam"></use>
+                    </svg>
+                    <img class="img-footer" src="../images/facebook.png" alt="facebook">
+                </a>
+                <a class="icon-link" href="#">
+                    <svg class="bi" aria-hidden="true">
+                        <use xlink:href="#box-seam"></use>
+                    </svg>
+                    <img class="img-footer" src="../images/instagram.png" alt="instagram">
+                </a>
+                <a class="icon-link" href="#">
+                    <svg class="bi" aria-hidden="true">
+                        <use xlink:href="#box-seam"></use>
+                    </svg>
+                    <img class="img-footer" src="../images/whatsapp.png" alt="whatsapp">
+                </a>
+            </div>
+            <p class="p-footer">ARIANA ALOCHIS - COHORT 51</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../javaScript/details.js" type="module"></script>
+</body>
+
+</html>

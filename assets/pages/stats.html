@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events | Stats</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="../images/amazing_brand.png" alt="amazing-logo">
+        <nav class="nav-header">
+            <a class="a-header" href="../../index.html">Home</a>
+            <a class="a-header" href="./upcomingevents.html">Upcoming Events</a>
+            <a class="a-header" href="./pastevents.html">Past Events</a>
+            <a class="a-header" href="./contact.html">Contact</a>
+            <a class="a-header" href="#">Stats</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../images/optional_banner_1.jpg" class="d-block w-100 img-banner" alt="comida">
+                    <h2 class="h2-carrusel">STATS</h2>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/optional_banner_2.jpg" class="d-block w-100 img-banner" alt="cine">
+                    <h2 class="h2-carrusel">STATS</h2>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/optional_banner_3.jpg" class="d-block w-100 img-banner" alt="museo">
+                    <h2 class="h2-carrusel">STATS</h2>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/optional_banner_4.jpg" class="d-block w-100 img-banner" alt="luces">
+                    <h2 class="h2-carrusel">STATS</h2>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/optional_banner_5.jpg" class="d-block w-100 img-banner" alt="microfono">
+                    <h2 class="h2-carrusel">STATS</h2>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="container-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="th" colspan="3">Event Statistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="subtitle">
+                        <td class="td">Events with highest % of assistance</td>
+                        <td class="td">Events with lowest % of assistance</td>
+                        <td class="td">Events with larger capacity</td>
+                    </tr>
+                    <tr id="body-table-1">
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="th" colspan="3">Upcoming events statistics by category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="subtitle">
+                        <td class="td">Categories</td>
+                        <td class="td">Revenues</td>
+                        <td class="td">Percentage of assistance</td>
+                    </tr>
+                </tbody>
+                <tbody id="body-table-2">
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="th" colspan="3">Past events statistics by category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="subtitle">
+                        <td class="td">Categories</td>
+                        <td class="td">Revenues</td>
+                        <td class="td">Percentage of assistance</td>
+                    </tr>
+                </tbody>
+                <tbody id="body-table-3">
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <div class="imag">
+            <a class="icon-link" href="#">
+                <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#box-seam"></use>
+                </svg>
+                <img class="img-footer" src="../images/facebook.png" alt="facebook">
+            </a>
+            <a class="icon-link" href="#">
+                <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#box-seam"></use>
+                </svg>
+                <img class="img-footer" src="../images/instagram.png" alt="instagram">
+            </a>
+            <a class="icon-link" href="#">
+                <svg class="bi" aria-hidden="true">
+                    <use xlink:href="#box-seam"></use>
+                </svg>
+                <img class="img-footer" src="../images/whatsapp.png" alt="whatsapp">
+            </a>
+        </div>
+        <p class="p-footer">ARIANA ALOCHIS - COHORT 51</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script type="module" src="../javaScript/stats.js"></script>
+</body>
+
+</html>

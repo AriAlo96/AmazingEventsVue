@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events | Past Events</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <img class="logo" src="../images/amazing_brand.png" alt="amazing-logo">
+            <nav class="nav-header">
+                <a class="a-header" href="../../index.html">Home</a>
+                <a class="a-header" href="./upcomingevents.html">Upcoming Events</a>
+                <a class="a-header" href="#">Past Events</a>
+                <a class="a-header" href="./contact.html">Contact</a>
+                <a class="a-header" href="./stats.html">Stats</a>
+            </nav>
+        </header>
+
+        <main>
+            <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../images/optional_banner_3.jpg" class="d-block w-100 img-banner" alt="museo">
+                        <h2 class="h2-carrusel">PAST EVENTS</h2>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../images/optional_banner_1.jpg" class="d-block w-100 img-banner" alt="comida">
+                        <h2 class="h2-carrusel">PAST EVENTS</h2>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../images/optional_banner_5.jpg" class="d-block w-100 img-banner" alt="microfono">
+                        <h2 class="h2-carrusel">PAST EVENTS</h2>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <div class="cont-checkbox-search">
+                <form class="form-checkbox">
+                    <div v-for="category of categories" class="form-check form-check-inline">
+                        <input class="form-check-input check-me" :value="category" type="checkbox" :id="category"
+                            v-model="inputCheckboxValue" v-on:change="filterByCategoryAndName">
+                        <label class="form-check-label" :for="category">{{category}}</label>
+                    </div>
+                </form>
+                <form class="d-flex" role="search">
+                    <input class="form-control form-search" type="text" placeholder="Search..."
+                        v-model="inputSearchValue" v-on:keyup="filterByCategoryAndName">
+                </form>
+            </div>
+            <div class="cont-cards">
+                <div v-if="crossFilter.length>0" v-for="event of crossFilter" class="card card-me" style="width: 18rem;">
+                    <img v-bind:src="event.image" class="card-img-top h-50 card-cover" alt="food_fair">
+                    <div class="card-body card-body-me">
+                        <h5 class="card-title">{{event.name}}</h5>
+                        <p class="card-text card-text-me">{{event.description}}</p>
+                        <div class="div-card">
+                            <h4>US$ {{event.price}}</h4>
+                            <a :href="createRoute(event)" class="btn btn-primary card-bot">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <h4 v-else>No results. Write another name</h4>
+            </div>
+        </main>
+        <footer>
+            <div class="imag">
+                <a class="icon-link" href="#">
+                    <svg class="bi" aria-hidden="true">
+                        <use xlink:href="#box-seam"></use>
+                    </svg>
+                    <img class="img-footer" src="../images/facebook.png" alt="facebook">
+                </a>
+                <a class="icon-link" href="#">
+                    <svg class="bi" aria-hidden="true">
+                        <use xlink:href="#box-seam"></use>
+                    </svg>
+                    <img class="img-footer" src="../images/instagram.png" alt="instagram">
+                </a>
+                <a class="icon-link" href="#">
+                    <svg class="bi" aria-hidden="true">
+                        <use xlink:href="#box-seam"></use>
+                    </svg>
+                    <img class="img-footer" src="../images/whatsapp.png" alt="whatsapp">
+                </a>
+            </div>
+            <p class="p-footer">ARIANA ALOCHIS - COHORT 51</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../javaScript/pastevents.js" type="module"></script>
+</body>
+
+</html>
