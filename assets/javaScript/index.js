@@ -4,7 +4,6 @@ createApp({
     data() {
         return {
             eventsList: [],
-            categories: [],
             inputCheckboxValue: [],
             inputSearchValue: "",
             crossFilter: [],

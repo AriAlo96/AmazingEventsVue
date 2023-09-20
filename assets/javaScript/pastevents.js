@@ -3,8 +3,8 @@ let { createApp } = Vue
 createApp({
     data() {
         return {
+            eventsList: [],
             pastEvents: [],
-            categories: [],
             inputCheckboxValue: [],
             inputSearchValue: "",
             crossFilter: [],
