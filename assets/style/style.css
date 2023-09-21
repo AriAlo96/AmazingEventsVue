@@ -196,8 +196,6 @@ font-weight: bold;
 .main-details {
     display: flex;
     justify-content: center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
 }
 .div-card-details {
     display: flex;
@@ -206,7 +204,7 @@ font-weight: bold;
     border: solid 0.1rem rgb(221, 16, 95);
     background-color: rgba(214, 204, 207, 0.452);
     border-radius: 3rem;
-    margin: 4rem;
+    margin: 1rem;
 }
 .card-img-me {
     width: 20rem;

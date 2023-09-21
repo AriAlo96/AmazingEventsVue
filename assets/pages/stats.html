@@ -95,7 +95,7 @@
                         <tr v-for="category of categoriesUpcoming">
                             <td class="td">{{category}}</td>
                             <td class="td">${{revenuesUpcoming[category]}}</td>
-                            <td class="td">{{averageAssistanceByCategoryUpcoming[category]}} %</td>
+                            <td class="td">{{averageUpcoming[category]}} %</td>
                         </tr>
                     </tbody>
 
@@ -115,7 +115,7 @@
                         <tr v-for="category of categoriesPast">
                             <td class="td">{{category}}</td>
                             <td class="td">${{revenuesPast[category]}}</td>
-                            <td class="td">{{averageAssistanceByCategoryPast[category]}} %</td>
+                            <td class="td">{{averagePast[category]}} %</td>
                         </tr>
                     </tbody>
                 </table>

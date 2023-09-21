@@ -31,12 +31,12 @@ createApp({
                 this.percentageAssistanceMax()
                 this.percentageAssistanceMin()
                 this.eventLargerCapacity()
-                this.categoriesTableUpcoming()
-                this.revenuesByCategoryUpcoming()
-                this.percentageAssistanceByCategoryUpcoming()
-                this.categoriesTablePast()
-                this.revenuesByCategoryPast()
-                this.percentageAssistanceByCategoryPast()
+                this.categoriesUpcoming = this.categoriesTable2and3(this.upcomingEvents)
+                this.revenuesUpcoming = this.revenuesByCategory(this.upcomingEvents)
+                this.averageUpcoming = this.averageByCategory(this.upcomingEvents)
+                this.categoriesPast = this.categoriesTable2and3(this.pastEvents)
+                this.revenuesPast = this.revenuesByCategory(this.pastEvents)
+                this.averagePast = this.averageByCategory(this.pastEvents)
             })
             .catch(err => console.log(err))
     },
@@ -68,56 +68,39 @@ createApp({
                 }
             }
         },
-        categoriesTableUpcoming() {
-            this.categoriesUpcoming = Array.from(new Set(this.upcomingEvents.map(event => event.category)))
+        categoriesTable2and3(events) {
+            return Array.from(new Set(events.map(event => event.category)))
         },
-        revenuesByCategoryUpcoming() {
-            this.revenuesUpcoming = this.upcomingEvents.reduce((acc, event) => {
+
+        revenuesByCategory(events) {
+           return events.reduce((acc, event) => {
                 let category = event.category;
                 let revenues = (event.price) * (event.estimate || event.assistance);
                 acc[category] = (acc[category] ? acc[category] + revenues : revenues);
                 return acc
             }, {});
         },
-        percentageAssistanceByCategoryUpcoming() {
-            this.averageAssistanceByCategoryUpcoming = this.upcomingEvents.reduce((acc, event) => {
+        averageByCategory(events) {
+             let additions = events.reduce((acc, event) => {
                 let category = event.category;
                 let assistance = ((event.estimate || event.assistance) * 100 / event.capacity);
-                acc[category] = acc[category] || {addAssistance: 0, addEventsByCategory: 0}
+                if (!acc[category]) {
+                    acc[category] = {addAssistance: 0, addEventsByCategory: 0};
+                }
                 acc[category].addAssistance += assistance;
                 acc[category].addEventsByCategory ++
+                console.log(acc);
                 return acc;
+                
             }, {})
-            for (let category in this.averageAssistanceByCategoryUpcoming) {
-        let { addAssistance, addEventsByCategory } = this.averageAssistanceByCategoryUpcoming[category];
-        this.averageAssistanceByCategoryUpcoming[category] = (addAssistance / addEventsByCategory).toFixed(1);
-    }
+            for (let category in additions) {
+                let categoryData = additions[category];
+                let averageAssistance = categoryData.addAssistance / categoryData.addEventsByCategory;
+                additions[category] = averageAssistance.toFixed(1);
+            }
+    return additions;
         },
-        categoriesTablePast() {
-            this.categoriesPast = Array.from(new Set(this.pastEvents.map(event => event.category)))
-        },
-        revenuesByCategoryPast() {
-            this.revenuesPast = this.pastEvents.reduce((acc, event) => {
-                let category = event.category;
-                let revenues = (event.price) * (event.estimate || event.assistance);
-                acc[category] = (acc[category] ? acc[category] + revenues : revenues);
-                return acc
-            }, {});
-        },
-        percentageAssistanceByCategoryPast() {
-            this.averageAssistanceByCategoryPast = this.pastEvents.reduce((acc, event) => {
-                let category = event.category;
-                let assistance = ((event.estimate || event.assistance) * 100 / event.capacity);
-                acc[category] = acc[category] || {addAssistance: 0, addEventsByCategory: 0}
-                acc[category].addAssistance += assistance;
-                acc[category].addEventsByCategory ++
-                return acc;
-            }, {})
-            for (let category in this.averageAssistanceByCategoryPast) {
-        let { addAssistance, addEventsByCategory } = this.averageAssistanceByCategoryPast[category];
-        this.averageAssistanceByCategoryPast[category] = (addAssistance / addEventsByCategory).toFixed(1);
-    }
-        },
+    
     }
 }).mount('#app')
 
